@@ -5,7 +5,7 @@ int main(void)
 {
     start_sbt();
 
-    end_sbt();
+    end_sbt("sbt_id");
 
     return(0);
 }
