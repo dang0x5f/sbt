@@ -1,3 +1,4 @@
+#include <unistd.h>
 #define SBT_IMPLEMENTATION
 #include "sbt.h"
 
@@ -25,7 +26,9 @@ void test03(void)
 {
     printf("test03\n");
 
-    start_sbt_v("sbt_id","start");
+    start_sbt_v("sbt_id","blank read() x2");
+    read(STDIN_FILENO, NULL, 0);
+    read(STDIN_FILENO, NULL, 0);
     end_sbt_v("sbt_id");
 
     printf("\n");

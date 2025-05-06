@@ -29,9 +29,9 @@ void start_sbt(void)
 void end_sbt(void)
 {
     gettimeofday(&tvp2, NULL);
-    int diff_sec = tvp2.tv_sec - tvp1.tv_sec;
-    int diff_ms  = tvp2.tv_usec - tvp1.tv_usec;
-    printf(" > %ds %dms\n", diff_sec, diff_ms);
+    long diff_sec = tvp2.tv_sec - tvp1.tv_sec;
+    long diff_ms  = tvp2.tv_usec - tvp1.tv_usec;
+    printf(" > %lds %ldms\n", diff_sec, diff_ms);
 }
 
 void start_sbt_v(char *sbt_id, char *sbt_msg)
@@ -47,12 +47,12 @@ void end_sbt_v(char *sbt_id)
     // gettimeofday(&tvp2, &tzp2);
     gettimeofday(&tvp2, NULL);
 
-    int diff_sec = tvp2.tv_sec - tvp1.tv_sec;
-    int diff_ms  = tvp2.tv_usec - tvp1.tv_usec;
+    long diff_sec = tvp2.tv_sec - tvp1.tv_sec;
+    long diff_ms  = tvp2.tv_usec - tvp1.tv_usec;
     if(sbt_id != NULL)
-        printf(" [%s] %ds %dms\n", sbt_id, diff_sec, diff_ms);
+        printf(" [%s] %lds %ldms\n", sbt_id, diff_sec, diff_ms);
     else
-        printf(" > %ds %dms\n", diff_sec, diff_ms);
+        printf(" > %lds %ldms\n", diff_sec, diff_ms);
 }
 
 #endif // SBT_IMPLEMENTATION
